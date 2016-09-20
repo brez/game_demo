@@ -1,46 +1,49 @@
-
-/* Game namespace */
+/* game namespace */
 var game = {
+	/**
+	 * an object where to store game global data
+	 */
+	data : {
+		score : 0
+	},
 
-    // an object where to store game information
-    data : {
-        // score
-        score : 0
-    },
+	// Run on page load.
+	onload : function () {
+		// Initialize the video.
+		if (!me.video.init(1280, 768, {wrapper : "screen", scale : "auto", scaleMethod : "flex-width"})) {
+			alert("Your browser does not support HTML5 canvas.");
+			return;
+		}
 
+		// add "#debug" to the URL to enable the debug Panel
+		if (me.game.HASH.debug === true) {
+			window.onReady(function () {
+				me.plugin.register.defer(this, me.debug.Panel, "debug", me.input.KEY.V);
+			});
+		}
 
-    // Run on page load.
-    "onload" : function () {
-        // Initialize the video.
-        if (!me.video.init(960, 640, {wrapper : "screen", scale : "auto"})) {
-            alert("Your browser does not support HTML5 canvas.");
-            return;
-        }
+		// Initialize the audio.
+		me.audio.init("mp3,ogg");
 
-        // add "#debug" to the URL to enable the debug Panel
-        if (me.game.HASH.debug === true) {
-            window.onReady(function () {
-                me.plugin.register.defer(this, me.debug.Panel, "debug", me.input.KEY.V);
-            });
-        }
+		// Set a callback to run when loading is complete.
+		me.loader.onload = this.loaded.bind(this);
 
-        // Initialize the audio.
-        me.audio.init("mp3,ogg");
+		// Load the resources.
+		me.loader.preload(game.resources);
 
-        // set and load all resources.
-        // (this will also automatically switch to the loading screen)
-        me.loader.preload(game.resources, this.loaded.bind(this));
-    },
+		// Initialize melonJS and display a loading screen.
+		me.state.change(me.state.LOADING);
+	},
 
-    // Run on game resources loaded.
-    "loaded" : function () {
-        me.state.set(me.state.MENU, new game.TitleScreen());
-        me.state.set(me.state.PLAY, new game.PlayScreen());
+	// Run on game resources loaded.
+	loaded : function () {
+		me.state.set(me.state.MENU, new game.TitleScreen());
+		me.state.set(me.state.PLAY, new game.PlayScreen());
 
-        // add our player entity in the entity pool
-        me.pool.register("mainPlayer", game.PlayerEntity);
+		// add our player entity in the entity pool
+		me.pool.register("mainPlayer", game.PlayerEntity);
 
-        // Start the game.
-        me.state.change(me.state.PLAY);
-    }
+		// Start the game.
+		me.state.change(me.state.PLAY);
+	}
 };
