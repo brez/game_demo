@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="15" tilewidth="128" tileheight="128" nextobjectid="9">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="15" tilewidth="128" tileheight="128" nextobjectid="11">
  <tileset firstgid="1" name="bricks" tilewidth="128" tileheight="128">
   <image source="../img/map/bricks.png" width="384" height="384"/>
  </tileset>
@@ -37,7 +37,7 @@
   </object>
   <object id="6" name="EnemyEntity" type="minion" x="1462.21" y="700.093" width="557.974" height="64">
    <properties>
-    <property name="image" value="big_bug"/>
+    <property name="image" value="sasha"/>
    </properties>
   </object>
   <object id="7" name="EnemyEntity" type="minion" x="1410.76" y="173.778" width="557.974" height="64">
@@ -54,8 +54,13 @@
  <objectgroup name="enemyEntity">
   <object id="5" name="EnemyEntity" type="minion" x="2370.4" y="427.384" width="557.974" height="64">
    <properties>
-    <property name="image" value="mai_bug"/>
+    <property name="image" value="kbot"/>
    </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="collisionShape">
+  <object id="10" x="4.61255" y="9.22509">
+   <polyline points="0,0 5110.7,0 5110.7,1900.37 13.8376,1909.59 4.61255,9.22509"/>
   </object>
  </objectgroup>
 </map>
