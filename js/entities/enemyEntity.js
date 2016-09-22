@@ -23,7 +23,7 @@ game.EnemyEntity = me.Entity.extend({
 		// call the parent constructor
 		this._super(me.Entity, 'init', [x, y , settings]);
 
-		this.renderable.addAnimation("walk",  [0, 1, 2, 3, 4, 5, 6, 7]);
+		this.renderable.addAnimation("walk",  [0, 1, 2]);
 
 		// set start/end position based on the initial area size
 		x = this.pos.x;
@@ -71,20 +71,23 @@ game.EnemyEntity = me.Entity.extend({
 	},
 
 	/**
-	 * colision handler
+	 * collision handler
 	 * (called when colliding with other objects)
 	 */
 	onCollision : function (response, collidedObject) {
 		if (collidedObject.name === 'fire' && this.damaged_by_GUID !== collidedObject.GUID) {
 			this.damaged_by_GUID = collidedObject.GUID;
-			this.health -= 50;
-			this.renderable.flicker(750);
-			me.state.set(me.state.PLAY, new game.PlayScreen());
-			if (this.health <= 0) {
-				this.leaveReward();
-				me.game.world.removeChild(this);
-				gamestate.notify('baddie killed', null);
-			}
+
+			/*
+				@TODO: do something when enemy is hit
+			 */
+			//this.health -= 50;
+			//this.renderable.flicker(750);
+			//if (this.health <= 0) {
+			//	this.leaveReward();
+			//	me.game.world.removeChild(this);
+			//	gamestate.notify('baddie killed', null);
+			//}
 			return false;
 		}
 		if (collidedObject.name === 'mainPlayer') {
@@ -97,7 +100,7 @@ game.EnemyEntity = me.Entity.extend({
 	leaveReward : function () {
 
 		var params = {
-			poolID: 'CoinEntity',
+			poolID: 'coin',
 			x: this.pos.x + 30,
 			y: this.pos.y + 20,
 			data: {

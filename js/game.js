@@ -11,6 +11,7 @@ var game = {
 
 	// Run on page load.
 	onload : function () {
+
 		// Initialize the video.
 		if (!me.video.init(640, 480, {wrapper : "screen", scale : "auto", scaleMethod : "flex-width"})) {
 			alert("Your browser does not support HTML5 canvas.");
@@ -45,27 +46,42 @@ var game = {
 		me.state.set(me.state.MENU, new game.TitleScreen());
 
 		// set the "Play/Ingame" Screen Object
-		me.state.set(me.state.PLAY, new game.PlayScreen());
+		/*
+			@TODO
+		 */
+		//me.state.set(me.state.PLAY, new game.PlayScreen());
 
 		// fade in with White
 		me.state.transition('fade', '#FFFFFF', 250);
 
 		// register our player entity in the object pool
-		me.pool.register("mainPlayer", game.PlayerEntity, true);
-		me.pool.register("CoinEntity", game.CoinEntity, true);
-		me.pool.register("EnemyEntity", game.EnemyEntity, true);
-		me.pool.register("projectile", game.AttackEntity, false);
+		/*
+			@TODO: register your entities to the pool so they can be re-instantiated later at a lower cost
+		 */
+		//me.pool.register("mainPlayer", game.PlayerEntity, true);
+		//me.pool.register("coin", game.CoinEntity, true);
+		//me.pool.register("enemy", game.EnemyEntity, true);
+		//me.pool.register("projectile", game.AttackEntity, false);
 
 		// enable the keyboard
-		me.input.bindKey(me.input.KEY.A,  "left");
-		me.input.bindKey(me.input.KEY.D, "right");
-		me.input.bindKey(me.input.KEY.W, "up");
-		me.input.bindKey(me.input.KEY.S, "down");
-		me.input.bindKey(me.input.KEY.X, "jump", true);
+		/*
+			@TODO: bind key inputs as needed
+		 */
+		//me.input.bindKey(me.input.KEY.A,  "left");
+		//me.input.bindKey(me.input.KEY.D, "right");
+		//me.input.bindKey(me.input.KEY.W, "up");
+		//me.input.bindKey(me.input.KEY.S, "down");
 
 		// Send player to menu
-		me.state.change(me.state.MENU);
+		//me.state.change(me.state.MENU);
 
+		// Or send player to play immediately
+		/*
+			@TODO: change state to the game.PlayScreen as registered above
+		 */
+		//me.state.change(me.state.PLAY);
+
+		// Set gravity to zero as we are doing a 2D top-down. Set to 1 (aka, standard 9.8 m/s^2 acceleration) for a typical Platformer
 		me.sys.gravity = 0;
 	}
 };

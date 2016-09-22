@@ -54,7 +54,10 @@ game.AttackEntity = me.Entity.extend({
 
 		if (collidedObject.type === 'minion' && !this.hitTarget) {
 			this.hitTarget = true;
-			me.game.viewport.shake(10, 500, me.game.viewport.AXIS.BOTH);
+			/*
+				@TODO
+			 */
+			//me.game.viewport.shake(10, 500, me.game.viewport.AXIS.BOTH);
 			me.game.world.removeChild(this);
 		}
 

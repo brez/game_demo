@@ -22,8 +22,11 @@ game.CoinEntity = me.CollectableEntity.extend({
 		}
 
 		if (collidedObject.type === 'PlayerEntity' && this.name === 'trophy') {
-			me.state.transition('fade', '#FFFFFF', 250);
-			me.levelDirector.loadLevel('level_2');
+			/*
+				@TODO: what do you want to do when the player collides with the trophy?
+			 */
+			//me.state.transition('fade', '#FFFFFF', 250);
+			//me.levelDirector.loadLevel('level_2');
 		}
 
 		// give some score

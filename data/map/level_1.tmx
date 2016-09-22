@@ -29,30 +29,30 @@
   </object>
  </objectgroup>
  <objectgroup name="coinEntity">
-  <object id="2" name="CoinEntity" x="2556.39" y="569.846" width="32" height="32">
+  <object id="2" name="coin" type="CoinEntity" x="2556.39" y="569.846" width="32" height="32">
    <properties>
     <property name="framewidth" value="32"/>
     <property name="image" value="spinning_coin_gold"/>
    </properties>
   </object>
-  <object id="6" name="EnemyEntity" type="minion" x="1462.21" y="700.093" width="557.974" height="64">
+  <object id="6" name="enemy" type="minion" x="1462.21" y="700.093" width="557.974" height="64">
    <properties>
     <property name="image" value="sasha"/>
    </properties>
   </object>
-  <object id="7" name="EnemyEntity" type="minion" x="1410.76" y="173.778" width="557.974" height="64">
+  <object id="7" name="enemy" type="minion" x="1410.76" y="173.778" width="557.974" height="64">
    <properties>
     <property name="image" value="mai_bug"/>
    </properties>
   </object>
-  <object id="8" name="EnemyEntity" type="minion" x="2471.31" y="1095.82" width="557.974" height="64">
+  <object id="8" name="enemy" type="minion" x="2471.31" y="1095.82" width="557.974" height="64">
    <properties>
     <property name="image" value="big_bug"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="enemyEntity">
-  <object id="5" name="EnemyEntity" type="minion" x="2370.4" y="427.384" width="557.974" height="64">
+  <object id="5" name="enemy" type="minion" x="2101.53" y="410.58" width="557.974" height="64">
    <properties>
     <property name="image" value="kbot"/>
    </properties>

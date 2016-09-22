@@ -1,18 +1,24 @@
 var gamestate = {
 
 	win : function () {
-		this.giveReward();
+		/*
+			@TODO: what do you want to do when you win?
+		 */
+		//this.giveReward();
 	},
 
 	die : function () {
-		// Release keys back to viewport
-		me.input.unbindKey(me.input.KEY.ENTER);
-
-		// Release pointer events back to viewport (they will be rebound on Play)
-		me.input.releasePointerEvent('pointerdown', me.game.viewport);
-
-		// Go back to main menu
-		me.state.change(me.state.MENU);
+		/*
+			@TODO: what do you want to do when you die?
+		 */
+		//// Release keys back to viewport
+		//me.input.unbindKey(me.input.KEY.ENTER);
+		//
+		//// Release pointer events back to viewport (they will be rebound on Play)
+		//me.input.releasePointerEvent('pointerdown', me.game.viewport);
+		//
+		//// Go back to main menu
+		//me.state.change(me.state.MENU);
 	},
 
 	checkGameStatus : function (obj) {
@@ -38,26 +44,29 @@ var gamestate = {
 	},
 
 	giveReward : function () {
-		var params = {
-			poolID: 'CoinEntity',
-			x: game.data.playerEntity.pos.x + 100,
-			y: game.data.playerEntity.pos.y + 100,
-			data: {
-				name: 'trophy',
-				type: 'CoinEntity',
-				resource_name: 'coffee',
-				image: 'coffee',
-				width: 128,
-				height: 128,
-				framewidth: 128,
-				frameheight: 128,
-				angle: this.angle
-			}
-		};
-
-		var newReward = me.pool.pull(params.poolID, params.x, params.y, params.data);
-		newReward.z = 39;
-		me.game.world.addChild(newReward);
+		/*
+			@TODO: want to give something for a win? Create an entity and give it!
+		 */
+		//var params = {
+		//	poolID: 'coin',
+		//	x: game.data.playerEntity.pos.x + 100,
+		//	y: game.data.playerEntity.pos.y + 100,
+		//	data: {
+		//		name: 'trophy',
+		//		type: 'CoinEntity',
+		//		resource_name: 'coffee',
+		//		image: 'coffee',
+		//		width: 128,
+		//		height: 128,
+		//		framewidth: 128,
+		//		frameheight: 128,
+		//		angle: this.angle
+		//	}
+		//};
+		//
+		//var newReward = me.pool.pull(params.poolID, params.x, params.y, params.data);
+		//newReward.z = 39;
+		//me.game.world.addChild(newReward);
 	}
 
 };
