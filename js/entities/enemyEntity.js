@@ -23,7 +23,7 @@ game.EnemyEntity = me.Entity.extend({
 		// call the parent constructor
 		this._super(me.Entity, 'init', [x, y , settings]);
 
-		this.renderable.addAnimation("walk",  [0, 1, 2, 3, 4, 5, 6, 7]);
+		this.renderable.addAnimation("walk",  [0, 1, 2]);
 
 		// set start/end position based on the initial area size
 		x = this.pos.x;
